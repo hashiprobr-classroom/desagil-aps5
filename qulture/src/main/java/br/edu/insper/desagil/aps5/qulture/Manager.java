@@ -29,13 +29,16 @@ public class Manager extends Employee {
 
 	@Override
 	public double calculateGrade() {
+		return (getGrade() + managedGrade()) / 2;
+	}
+
+	private double managedGrade() {
 		double managedSum = 0;
 		if (!managed.isEmpty()) {
 			for (Employee employee : managed.values()) {
 				managedSum += employee.getGrade();
 			}
 		}
-		return (getGrade() + managedSum / managed.size()) / 2;
+		return managedSum / managed.size();
 	}
-
 }
