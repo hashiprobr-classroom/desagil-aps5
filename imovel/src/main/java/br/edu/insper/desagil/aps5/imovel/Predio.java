@@ -1,4 +1,4 @@
-package br.edu.insper.desagil.pi.imovel;
+package br.edu.insper.desagil.aps5.imovel;
 
 public class Predio {
     private int numero;

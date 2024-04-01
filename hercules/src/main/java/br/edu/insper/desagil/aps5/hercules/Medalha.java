@@ -1,4 +1,4 @@
-package br.edu.insper.desagil.pi.hercules;
+package br.edu.insper.desagil.aps5.hercules;
 
 public class Medalha {
     private String tipo;
