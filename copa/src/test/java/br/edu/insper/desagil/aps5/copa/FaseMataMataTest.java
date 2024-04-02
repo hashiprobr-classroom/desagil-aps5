@@ -34,6 +34,10 @@ public class FaseMataMataTest {
     void semEmpate() {
         adicionaPartida("FLA", "FLU", 1, 0);
         adicionaPartida("PAL", "COR", 0, 1);
+
+        // Você pode usar List.of e Map.of na prova, mas APENAS EM TESTES.
+        // Esses métodos criam estruturas imutáveis, que não podem ser
+        // modificadas depois de criadas.
         assertEquals(List.of("FLA", "COR"), f.defineClassificados());
     }
 
