@@ -4,32 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Resultado {
-    private List<String> nomes;
-    private List<Integer> populacoes;
-    private List<Double> pibs;
-    private List<List<Medalha>> listasMedalhas;
+    private List<Pais> paises;
 
     public Resultado() {
-        this.nomes = new ArrayList<>();
-        this.populacoes = new ArrayList<>();
-        this.pibs = new ArrayList<>();
-        this.listasMedalhas = new ArrayList<>();
+        this.paises = new ArrayList<>();
     }
 
     public void adicionaPais(String nome, int populacao, double pib) {
-        nomes.add(nome);
-        populacoes.add(populacao);
-        pibs.add(pib);
-        listasMedalhas.add(new ArrayList<>());
+        paises.add(new Pais(nome, populacao, pib));
     }
 
     public void adicionaMedalha(int i, Medalha medalha) {
-        listasMedalhas.get(i).add(medalha);
+        paises.get(i).getMedalhas().add(medalha);
     }
 
     public int somaPontos(int i) {
         int pontos = 0;
-        List<Medalha> medalhas = listasMedalhas.get(i);
+        List<Medalha> medalhas = paises.get(i).getMedalhas();
         for (Medalha medalha : medalhas) {
             pontos += medalha.getPontos();
         }
@@ -38,9 +29,10 @@ public class Resultado {
 
     public String criaRelatorio(int i) {
         String relatorio = "";
-        relatorio += "Nome: " + nomes.get(i) + "\n";
-        relatorio += "População: " + populacoes.get(i) + "\n";
-        relatorio += "PIB: " + pibs.get(i) + "\n";
+        Pais pais = paises.get(i);
+        relatorio += "Nome: " + pais.getNome() + "\n";
+        relatorio += "População: " + pais.getPopulacao() + "\n";
+        relatorio += "PIB: " + pais.getPib() + "\n";
         relatorio += "Pontos: " + somaPontos(i) + "\n";
         return relatorio;
     }
