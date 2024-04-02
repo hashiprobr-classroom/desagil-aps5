@@ -10,4 +10,8 @@ public class Medalha {
     public String getTipo() {
         return tipo;
     }
+
+    public int getPontos() {
+        throw new IllegalArgumentException("Medalha inválida!");
+    }
 }
