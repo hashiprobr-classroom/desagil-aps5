@@ -31,16 +31,7 @@ public class Resultado {
         int pontos = 0;
         List<Medalha> medalhas = listasMedalhas.get(i);
         for (Medalha medalha : medalhas) {
-            String tipo = medalha.getTipo();
-            if (tipo.equals("bronze")) {
-                pontos += 1;
-            } else if (tipo.equals("prata")) {
-                pontos += 2;
-            } else if (tipo.equals("ouro")) {
-                pontos += 3;
-            } else {
-                throw new IllegalArgumentException("Medalha inválida!");
-            }
+            pontos += medalha.getPontos();
         }
         return pontos;
     }
