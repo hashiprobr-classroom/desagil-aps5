@@ -24,4 +24,25 @@ public abstract class Match {
     public void setHeelAdvantage(boolean heelAdvantage) {
         this.heelAdvantage = heelAdvantage;
     }
+
+    public void finish() {
+        if (faceAdvantage) {
+            if (heelAdvantage) {
+                finishWithFaceHeelAdvantage();
+            } else {
+                finishWithFaceAdvantage();
+            }
+        } else {
+            if (heelAdvantage) {
+                finishWithHeelAdvantage();
+            } else {
+                finishWithoutAdvantages();
+            }
+        }
+    }
+
+    protected abstract void finishWithFaceHeelAdvantage();
+    protected abstract void finishWithFaceAdvantage();
+    protected abstract void finishWithHeelAdvantage();
+    protected abstract void finishWithoutAdvantages();
 }

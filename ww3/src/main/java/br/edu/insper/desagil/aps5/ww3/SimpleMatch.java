@@ -17,23 +17,27 @@ public class SimpleMatch extends Match {
         return heelWrestler;
     }
 
-    public void finish() {
-        if (isFaceAdvantage()) {
-            if (isHeelAdvantage()) {
-                faceWrestler.addPoints(1);
-                heelWrestler.addPoints(1);
-            } else {
-                faceWrestler.addPoints(2);
-                heelWrestler.addPoints(0);
-            }
-        } else {
-            if (isHeelAdvantage()) {
-                faceWrestler.addPoints(0);
-                heelWrestler.addPoints(2);
-            } else {
-                faceWrestler.addPoints(0);
-                heelWrestler.addPoints(0);
-            }
-        }
+    @Override
+    protected void finishWithFaceHeelAdvantage() {
+        faceWrestler.addPoints(1);
+        heelWrestler.addPoints(1);
+    }
+
+    @Override
+    protected void finishWithHeelAdvantage() {
+        faceWrestler.addPoints(2);
+        heelWrestler.addPoints(0);
+    }
+
+    @Override
+    protected void finishWithFaceAdvantage() {
+        faceWrestler.addPoints(0);
+        heelWrestler.addPoints(2);
+    }
+
+    @Override
+    protected void finishWithoutAdvantages() {
+        faceWrestler.addPoints(0);
+        heelWrestler.addPoints(0);
     }
 }

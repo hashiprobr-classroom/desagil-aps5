@@ -17,31 +17,35 @@ public class TagMatch extends Match {
         return heelTeam;
     }
 
-    public void finish() {
-        if (isFaceAdvantage()) {
-            if (isHeelAdvantage()) {
-                faceTeam.getFirst().addPoints(0.5);
-                faceTeam.getSecond().addPoints(0.5);
-                heelTeam.getFirst().addPoints(0.5);
-                heelTeam.getSecond().addPoints(0.5);
-            } else {
-                faceTeam.getFirst().addPoints(1);
-                faceTeam.getSecond().addPoints(1);
-                heelTeam.getFirst().addPoints(0);
-                heelTeam.getSecond().addPoints(0);
-            }
-        } else {
-            if (isHeelAdvantage()) {
-                faceTeam.getFirst().addPoints(0);
-                faceTeam.getSecond().addPoints(0);
-                heelTeam.getFirst().addPoints(1);
-                heelTeam.getSecond().addPoints(1);
-            } else {
-                faceTeam.getFirst().addPoints(0);
-                faceTeam.getSecond().addPoints(0);
-                heelTeam.getFirst().addPoints(0);
-                heelTeam.getSecond().addPoints(0);
-            }
-        }
+    @Override
+    protected void finishWithFaceHeelAdvantage() {
+        faceTeam.getFirst().addPoints(0.5);
+        faceTeam.getSecond().addPoints(0.5);
+        heelTeam.getFirst().addPoints(0.5);
+        heelTeam.getSecond().addPoints(0.5);
+    }
+
+    @Override
+    protected void finishWithHeelAdvantage() {
+        faceTeam.getFirst().addPoints(1);
+        faceTeam.getSecond().addPoints(1);
+        heelTeam.getFirst().addPoints(0);
+        heelTeam.getSecond().addPoints(0);
+    }
+
+    @Override
+    protected void finishWithFaceAdvantage() {
+        faceTeam.getFirst().addPoints(0);
+        faceTeam.getSecond().addPoints(0);
+        heelTeam.getFirst().addPoints(1);
+        heelTeam.getSecond().addPoints(1);
+    }
+
+    @Override
+    protected void finishWithoutAdvantages() {
+        faceTeam.getFirst().addPoints(0);
+        faceTeam.getSecond().addPoints(0);
+        heelTeam.getFirst().addPoints(0);
+        heelTeam.getSecond().addPoints(0);
     }
 }
