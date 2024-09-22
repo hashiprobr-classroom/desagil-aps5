@@ -17,4 +17,9 @@ public class Team {
     public Wrestler getSecond() {
         return second;
     }
+
+    public void addPoints(double points) {
+        first.addPoints(points);
+        second.addPoints(points);
+    }
 }

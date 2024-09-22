@@ -19,33 +19,25 @@ public class TagMatch extends Match {
 
     @Override
     protected void finishWithFaceHeelAdvantage() {
-        faceTeam.getFirst().addPoints(0.5);
-        faceTeam.getSecond().addPoints(0.5);
-        heelTeam.getFirst().addPoints(0.5);
-        heelTeam.getSecond().addPoints(0.5);
+        faceTeam.addPoints(0.5);
+        heelTeam.addPoints(0.5);
     }
 
     @Override
     protected void finishWithHeelAdvantage() {
-        faceTeam.getFirst().addPoints(1);
-        faceTeam.getSecond().addPoints(1);
-        heelTeam.getFirst().addPoints(0);
-        heelTeam.getSecond().addPoints(0);
+        faceTeam.addPoints(1);
+        heelTeam.addPoints(0);
     }
 
     @Override
     protected void finishWithFaceAdvantage() {
-        faceTeam.getFirst().addPoints(0);
-        faceTeam.getSecond().addPoints(0);
-        heelTeam.getFirst().addPoints(1);
-        heelTeam.getSecond().addPoints(1);
+        faceTeam.addPoints(0);
+        heelTeam.addPoints(1);
     }
 
     @Override
     protected void finishWithoutAdvantages() {
-        faceTeam.getFirst().addPoints(0);
-        faceTeam.getSecond().addPoints(0);
-        heelTeam.getFirst().addPoints(0);
-        heelTeam.getSecond().addPoints(0);
+        faceTeam.addPoints(0);
+        heelTeam.addPoints(0);
     }
 }
