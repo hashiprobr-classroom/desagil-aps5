@@ -1,16 +1,12 @@
 package br.edu.insper.desagil.aps5.ww3;
 
-public class SimpleMatch {
+public class SimpleMatch extends Match {
     private Wrestler faceWrestler;
     private Wrestler heelWrestler;
-    private boolean faceAdvantage;
-    private boolean heelAdvantage;
 
     public SimpleMatch(Wrestler faceWrestler, Wrestler heelWrestler) {
         this.faceWrestler = faceWrestler;
         this.heelWrestler = heelWrestler;
-        this.faceAdvantage = false;
-        this.heelAdvantage = false;
     }
 
     public Wrestler getFaceWrestler() {
@@ -21,39 +17,27 @@ public class SimpleMatch {
         return heelWrestler;
     }
 
-    public boolean isFaceAdvantage() {
-        return faceAdvantage;
+    @Override
+    protected void finishWithFaceHeelAdvantage() {
+        faceWrestler.addPoints(1);
+        heelWrestler.addPoints(1);
     }
 
-    public void setFaceAdvantage(boolean faceAdvantage) {
-        this.faceAdvantage = faceAdvantage;
+    @Override
+    protected void finishWithHeelAdvantage() {
+        faceWrestler.addPoints(2);
+        heelWrestler.addPoints(0);
     }
 
-    public boolean isHeelAdvantage() {
-        return heelAdvantage;
+    @Override
+    protected void finishWithFaceAdvantage() {
+        faceWrestler.addPoints(0);
+        heelWrestler.addPoints(2);
     }
 
-    public void setHeelAdvantage(boolean heelAdvantage) {
-        this.heelAdvantage = heelAdvantage;
-    }
-
-    public void finish() {
-        if (faceAdvantage) {
-            if (heelAdvantage) {
-                faceWrestler.addPoints(1);
-                heelWrestler.addPoints(1);
-            } else {
-                faceWrestler.addPoints(2);
-                heelWrestler.addPoints(0);
-            }
-        } else {
-            if (heelAdvantage) {
-                faceWrestler.addPoints(0);
-                heelWrestler.addPoints(2);
-            } else {
-                faceWrestler.addPoints(0);
-                heelWrestler.addPoints(0);
-            }
-        }
+    @Override
+    protected void finishWithoutAdvantages() {
+        faceWrestler.addPoints(0);
+        heelWrestler.addPoints(0);
     }
 }
