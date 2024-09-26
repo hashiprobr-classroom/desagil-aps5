@@ -25,6 +25,6 @@ public class Grupo {
     }
 
     public void adicionaMembro(Usuario usuario) {
-        loginsMembros.add(usuario.getNome());
+        loginsMembros.add(usuario.getLogin());
     }
 }
