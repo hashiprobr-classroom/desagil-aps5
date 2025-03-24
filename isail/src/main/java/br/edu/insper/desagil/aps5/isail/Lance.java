@@ -24,4 +24,8 @@ public class Lance {
     public double getOferta() {
         return oferta;
     }
+
+    public void imprimeInformacoes() {
+        System.out.println(comprador + " ofereceu " + oferta + " (" + momento.toString() + ")");
+    }
 }

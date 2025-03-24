@@ -40,7 +40,7 @@ public class Item {
             System.out.println("Nenhum lance foi feito ainda!");
         } else {
             int maior = indiceDaMaiorOferta();
-            System.out.println(lances.get(maior).getComprador() + " ofereceu " + lances.get(maior).getOferta() + " (" + lances.get(maior).getMomento().toString() + ")");
+            lances.get(maior).imprimeInformacoes();
         }
     }
 
